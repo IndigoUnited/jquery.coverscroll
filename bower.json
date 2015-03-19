@@ -1,0 +1,28 @@
+{
+  "name": "jquery.coverscroll",
+  "version": "0.1.0",
+  "main": "lib/jquery.coverscroll.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^1.8||^2.0"
+  },
+  "homepage": "https://github.com/IndigoUnited/jquery.coverscroll",
+  "authors": [
+    "IndigoUnited",
+    "Bitovi"
+  ],
+  "description": "Improves scroll performance by adding a cover layer to prevent hover styles from triggering",
+  "keywords": [
+    "scroll",
+    "performance",
+    "hover",
+    "smooth",
+    "60fps"
+  ]
+}

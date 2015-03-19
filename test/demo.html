@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="lt-ie10"><![endif]-->
+<!--[if gt IE 9]><!--><html><!--<![endif]-->
+    <head>
+        <title>coverscroll demo</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="../lib/jquery.coverscroll.js"></script>
+        <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .is-cover-visible [data-coverscroll] {
+            background-color: red;
+        }
+
+        .scrollable-wrapper {
+            width: 100%;
+            height: calc(100% - 30px);
+        }
+
+        .scrollable {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .item {
+            width: 100%;
+            height: 50px;
+            background-color: yellow;
+        }
+
+        .item:hover {
+            background-color: white;
+        }
+
+        .ctrls {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 25px;
+            padding: 0 5px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="scrollable-wrapper">
+            <div class="scrollable"></div>
+        </div>
+
+        <div class="ctrls">
+            <button class="init">Init</button>
+            <button class="destroy">Destroy</button>
+            <button class="toggle-color">Toggle cover visibility</button>
+        </div>
+        <script>
+        /*jshint strict:false*/
+        /*global $*/
+        $(document).ready(function () {
+            var scrollable = $('.scrollable'),
+                nrItems = 100;
+
+            for (; nrItems >= 0; nrItems -= 1) {
+                $('<div class="item">Hello ' + nrItems + '</div>').appendTo(scrollable);
+            }
+
+            $('.init').on('click', function () {
+                scrollable.coverscroll();
+            }).triggerHandler('click');
+
+            $('.destroy').on('click', function () {
+                scrollable.coverscroll('destroy');
+            });
+
+            $('.toggle-color').on('click', function () {
+                $(document.body).toggleClass('is-cover-visible');
+            });
+        });
+        </script>
+    </body>
+</html>
